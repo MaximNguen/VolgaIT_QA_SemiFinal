@@ -33,8 +33,8 @@ class TestFormsPage:
         self.form_page.checkbox5_click()
         self.form_page.checkbox6_click()
         self.form_page.radio1_click()
-        self.form_page.select_click()
         self.form_page.email_send(email)
+        self.form_page.select_click()
         self.form_page.message_send()
         self.form_page.submit_click()
         with allure.step("Подтверждаем, что после нажатия Submit у нас выпало нужное предложение в Alert'е"):
