@@ -3,6 +3,7 @@ from pages.elements import *
 
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
+import allure
 
 
 class EventsPage(BasePage):
@@ -12,34 +13,42 @@ class EventsPage(BasePage):
     def buttonCat(self):
         btn = self.find(BUTTONCAT[0], BUTTONCAT[1])
         self.scroll(btn)
-        return btn
+        with allure.step("Поиск кнопки Cat"):
+            return btn
 
     def buttonCat_click(self):
-        return self.buttonCat().click()
+        with allure.step("Нажатие кнопки Cat"):
+            return self.buttonCat().click()
 
     def buttonDog(self):
         btn = self.find(BUTTONDOG[0], BUTTONDOG[1])
         self.scroll(btn)
-        return btn
+        with allure.step("Поиск кнопки Dog"):
+            return btn
 
     def buttonDog_click(self):
-        return self.buttonDog().click()
+        with allure.step("Нажатие кнопки Dog"):
+            return self.buttonDog().click()
 
     def buttonPig(self):
         btn = self.find(BUTTONPIG[0], BUTTONPIG[1])
         self.scroll(btn)
-        return btn
+        with allure.step("Поиск кнопки Pig"):
+            return btn
 
     def buttonPig_click(self):
-        return self.buttonPig().click()
+        with allure.step("Нажатие кнопки Pig"):
+            return self.buttonPig().click()
 
     def buttonCow(self):
         btn = self.find(BUTTONCOW[0], BUTTONCOW[1])
         self.scroll(btn)
-        return btn
+        with allure.step("Поиск кнопки Cow"):
+            return btn
 
     def buttonCow_click(self):
-        return self.buttonCow().click()
+        with allure.step("Нажатие кнопки Cow"):
+            return self.buttonCow().click()
 
 
     def wait(self):
@@ -51,4 +60,5 @@ class EventsPage(BasePage):
         a = self.wait()
         res = self.find(RESULT[0], RESULT[1])
         self.scroll(res)
-        return res.text
+        with allure.step("Получение текста нажатия кнопки"):
+            return res.text

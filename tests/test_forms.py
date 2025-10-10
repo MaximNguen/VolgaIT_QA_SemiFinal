@@ -1,3 +1,4 @@
+import allure
 import pytest
 from pages.forms_page import FormsPage
 
@@ -17,10 +18,12 @@ class TestFormsPage:
         yield self.form_page
         self.form_page.quit()
 
-    @pytest.mark.parametrize("name, password, email, message", [
-        ("asdasd", "dasdasdsad", "dsadasdsad", "sdasdasdasd")
+    @allure.feature("Forms")
+    @allure.story("Ввод всех полей и нажитий ячеек")
+    @pytest.mark.parametrize("name, password, email", [
+        ("asdasd", "dasdasdsad", "dsadasdsad")
     ])
-    def test_all(self, name, password, email, message):
+    def test_all(self, name, password, email):
         self.form_page.nameInput_send(name)
         self.form_page.passwordInput_send(password)
         self.form_page.checkbox1_click()
@@ -32,7 +35,8 @@ class TestFormsPage:
         self.form_page.radio1_click()
         self.form_page.select_click()
         self.form_page.email_send(email)
-        self.form_page.message_send(message)
+        self.form_page.message_send()
         self.form_page.submit_click()
-        assert self.form_page.check_state_alert() == "Message received!"
+        with allure.step("Подтверждаем, что после нажатия Submit у нас выпало нужное предложение в Alert'е"):
+            assert self.form_page.check_state_alert() == "Message received!"
 
