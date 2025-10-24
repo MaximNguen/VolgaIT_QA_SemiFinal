@@ -46,7 +46,7 @@ class FormsPage(BasePage):
 
     def checkbox2_click(self):
         with allure.step("Нажимаем ЧекБокс2"):
-            self.checkbox1().click()
+            self.checkbox2().click()
 
     def checkbox3(self):
         check3 = self.find(CHECKBOX3[0], CHECKBOX3[1])
@@ -56,7 +56,7 @@ class FormsPage(BasePage):
 
     def checkbox3_click(self):
         with allure.step("Нажимаем ЧекБокс3"):
-            self.checkbox1().click()
+            self.checkbox3().click()
 
     def checkbox4(self):
         check4 = self.find(CHECKBOX4[0], CHECKBOX4[1])
@@ -66,7 +66,7 @@ class FormsPage(BasePage):
 
     def checkbox4_click(self):
         with allure.step("Нажимаем ЧекБокс4"):
-            self.checkbox1().click()
+            self.checkbox4().click()
 
     def checkbox5(self):
         check5 = self.find(CHECKBOX5[0], CHECKBOX5[1])
@@ -76,7 +76,7 @@ class FormsPage(BasePage):
 
     def checkbox5_click(self):
         with allure.step("Нажимаем ЧекБокс5"):
-            self.checkbox1().click()
+            self.checkbox5().click()
 
     def checkbox6(self):
         check6 = self.find(CHECKBOX6[0], CHECKBOX6[1])
@@ -86,7 +86,7 @@ class FormsPage(BasePage):
 
     def checkbox6_click(self):
         with allure.step("Нажимаем ЧекБокс6"):
-            self.checkbox1().click()
+            self.checkbox6().click()
 
     def radio1(self):
         radio1 = self.find(RADIO1[0], RADIO1[1])
