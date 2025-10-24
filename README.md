@@ -1,7 +1,7 @@
 # VolgaIT_QA_SemiFinal
 <h2>Тест-кейс №1 - Формы</h2>
 <h3>Заполнение всех полей формы - Тест 1</h3>
-<strong>Предусловия:</strong> Открыта страница формы</br>
+<strong>Предусловия:</strong> Открыта страница [формы](https://practice-automation.com/form-fields/)</br>
 <strong>Шаги</strong>
 <ul>
   <li>Заполнить поле "Name"</li>
@@ -18,7 +18,7 @@
 
 <h2>Тест-кейс №2 - События</h2>
 <h3>Получение текста кота - Тест 1</h3>
-<strong>Предусловия:</strong> Открыта страница формы</br>
+<strong>Предусловия:</strong> Открыта страница [событий](https://practice-automation.com/click-events/)</br>
 <strong>Шаги</strong>
 <ul>
   <li>Нажать на кнопку "Cat"</li>
@@ -26,7 +26,7 @@
 <strong>Ожидаемый результат</strong> - Появление текста "Meow!"
 
 <h3>Получение текста собаки - Тест 2</h3>
-<strong>Предусловия:</strong> Открыта страница формы</br>
+<strong>Предусловия:</strong> Открыта страница [событий](https://practice-automation.com/click-events/)</br>
 <strong>Шаги</strong>
 <ul>
   <li>Нажать на кнопку "Dog"</li>
@@ -34,7 +34,7 @@
 <strong>Ожидаемый результат</strong> - Появление текста "Woof!"
 
 <h3>Получение текста свинки - Тест 3</h3>
-<strong>Предусловия:</strong> Открыта страница формы</br>
+<strong>Предусловия:</strong> Открыта страница [событий](https://practice-automation.com/click-events/)</br>
 <strong>Шаги</strong>
 <ul>
   <li>Нажать на кнопку "Pig"</li>
@@ -42,7 +42,7 @@
 <strong>Ожидаемый результат</strong> - Появление текста "Oink!"
 
 <h3>Получение текста кота - Тест 4</h3>
-<strong>Предусловия:</strong> Открыта страница формы</br>
+<strong>Предусловия:</strong> Открыта страница [событий](https://practice-automation.com/click-events/)</br>
 <strong>Шаги</strong>
 <ul>
   <li>Нажать на кнопку "Сow"</li>
@@ -51,7 +51,7 @@
 
 <h2>Тест-кейс №3 - Модальные окна</h2>
 <h3>Вывод модального окна №1 - Тест 1</h3>
-<strong>Предусловия:</strong> Открыта страница формы</br>
+<strong>Предусловия:</strong> Открыта страница [модальных окон](https://practice-automation.com/popups/)</br>
 <strong>Шаги</strong>
 <ul>
   <li>Нажать на кнопку "Alert Popup"</li>
@@ -59,7 +59,7 @@
 <strong>Ожидаемый результат</strong> - Появление текста в модальном окне - "Hi there, pal!"
 
 <h3>Вывод модального окна №2 - Тест 2</h3>
-<strong>Предусловия:</strong> Открыта страница формы</br>
+<strong>Предусловия:</strong> Открыта страница [модальных окон](https://practice-automation.com/popups/)</br>
 <strong>Шаги</strong>
 <ul>
   <li>Нажать на кнопку "Confirm Popup"</li>
@@ -68,7 +68,7 @@
 <strong>Ожидаемый результат</strong> - Появление текста - "OK it is!"
 
 <h3>Вывод модального окна №2 - Тест 3</h3>
-<strong>Предусловия:</strong> Открыта страница формы</br>
+<strong>Предусловия:</strong> Открыта страница [модальных окон](https://practice-automation.com/popups/)</br>
 <strong>Шаги</strong>
 <ul>
   <li>Нажать на кнопку "Confirm Popup"</li>
@@ -77,7 +77,7 @@
 <strong>Ожидаемый результат</strong> - Появление текста - "Cancel it is!"
 
 <h3>Вывод модального окна №3 - Тест 4</h3>
-<strong>Предусловия:</strong> Открыта страница формы</br>
+<strong>Предусловия:</strong> Открыта страница [модальных окон](https://practice-automation.com/popups/)</br>
 <strong>Шаги</strong>
 <ul>
   <li>Нажать на кнопку "Prompt Popup"</li>
@@ -87,7 +87,7 @@
 <strong>Ожидаемый результат</strong> - Появление текста - "Nice to meet you, {Введенным текст}"
 
 <h3>Вывод модального окна №3 - Тест 5</h3>
-<strong>Предусловия:</strong> Открыта страница формы</br>
+<strong>Предусловия:</strong> Открыта страница [модальных окон](https://practice-automation.com/popups/)</br>
 <strong>Шаги</strong>
 <ul>
   <li>Нажать на кнопку "Prompt Popup"</li>
@@ -95,8 +95,8 @@
 </ul>
 <strong>Ожидаемый результат</strong> - Появление текста - "Fine, be that way..."
 
-<h3>Вывод модального окна №3 - Тест 5</h3>
-<strong>Предусловия:</strong> Открыта страница формы</br>
+<h3>Вывод модального окна №3 - Тест 6</h3>
+<strong>Предусловия:</strong> Открыта страница [модальных окон](https://practice-automation.com/popups/)</br>
 <strong>Шаги</strong>
 <ul>
   <li>Нажать на кнопку "Prompt Popup"</li>
