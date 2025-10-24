@@ -78,16 +78,6 @@ class FormsPage(BasePage):
         with allure.step("Нажимаем ЧекБокс5"):
             self.checkbox5().click()
 
-    def checkbox6(self):
-        check6 = self.find(CHECKBOX6[0], CHECKBOX6[1])
-        self.scroll(check6)
-        with allure.step("Находим ЧекБокс6"):
-            return check6
-
-    def checkbox6_click(self):
-        with allure.step("Нажимаем ЧекБокс6"):
-            self.checkbox6().click()
-
     def radio1(self):
         radio1 = self.find(RADIO1[0], RADIO1[1])
         self.scroll(radio1)
