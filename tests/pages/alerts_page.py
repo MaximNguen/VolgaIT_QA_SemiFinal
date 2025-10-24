@@ -7,7 +7,7 @@ import allure
 class AlertsPage(BasePage):
     def __init__(self, browser):
         super().__init__(browser)
-#alert1
+
     def alert1_click(self):
         alert = self.find(ALERT1[0], ALERT1[1])
         self.scroll(alert)
@@ -23,7 +23,7 @@ class AlertsPage(BasePage):
         alert = self.browser.switch_to.alert
         with allure.step("Подтвердить OK у Alert 1"):
             alert.accept()
-     # alert 2
+
     def alert2_click(self):
         alert = self.find(ALERT2[0], ALERT2[1])
         self.scroll(alert)
@@ -46,7 +46,6 @@ class AlertsPage(BasePage):
         with allure.step("Получить текст после нажатия Alert 2"):
             return text1.text
 
-    #alert3
     def alert3_click(self):
         alert = self.find(ALERT3[0], ALERT3[1])
         self.scroll(alert)

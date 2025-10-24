@@ -26,7 +26,7 @@ class TestAlertsPage:
         text = self.alert_page.get_alert1_text()
         self.alert_page.accept_alert1_text()
         with allure.step("Подтверждаем, что бы получаем верный текст после закрытия Alert 1"):
-            assert text == "Hi there, pal!"
+            assert text == "Hi there, pal!", "Ожидалось вывод текста Hi there, pal!"
 
     @allure.feature("Alerts")
     @allure.story("Тест второго Alert (Успешный - нажатие OK)")
@@ -34,7 +34,7 @@ class TestAlertsPage:
         self.alert_page.alert2_click()
         self.alert_page.accept_alert2_text()
         with allure.step("Подтверждаем, что после нажатия OK у нас выпало нужное предложение"):
-            assert self.alert_page.get_text_after_alert2() == "OK it is!"
+            assert self.alert_page.get_text_after_alert2() == "OK it is!", "Ожидалось вывод текста OK it is!"
 
     @allure.feature("Alerts")
     @allure.story("Тест второго Alert (Негативный - нажатие отмены)")
@@ -42,7 +42,7 @@ class TestAlertsPage:
         self.alert_page.alert2_click()
         self.alert_page.dismiss_alert2()
         with allure.step("Подтверждаем, что после нажатия Отмены у нас выпало нужное предложение"):
-            assert self.alert_page.get_text_after_alert2() == "Cancel it is!"
+            assert self.alert_page.get_text_after_alert2() == "Cancel it is!", "Ожидалось вывод текста Cancel it is!"
 
     @allure.feature("Alerts")
     @allure.story("Тест третьего Alert (Успешный - ввод текста и нажатие OK)")
@@ -52,7 +52,7 @@ class TestAlertsPage:
         self.alert_page.send_text_to_alert3(name)
         self.alert_page.accept_alert3()
         with allure.step("Подтверждаем, что после ввода текста и нажатия OK у нас выпало нужное предложение"):
-            assert self.alert_page.get_text_after_alert3() == f"Nice to meet you, {name}!"
+            assert self.alert_page.get_text_after_alert3() == f"Nice to meet you, {name}!", "Ожидалось вывод текста с введенным именем"
 
     @allure.feature("Alerts")
     @allure.story("Тест третьего Alert (Негативный - не ввели текст и нажатие OK)")
@@ -60,7 +60,7 @@ class TestAlertsPage:
         self.alert_page.alert3_click()
         self.alert_page.accept_alert3()
         with allure.step("Подтверждаем, что после нажатия OK у нас выпало нужное предложение"):
-            assert self.alert_page.get_text_after_alert3() == "Fine, be that way..."
+            assert self.alert_page.get_text_after_alert3() == "Fine, be that way...", "Ожидалось вывод текста Fine, be that way..."
 
     @allure.feature("Alerts")
     @allure.story("Тест второго Alert (Негативный - нажатие Отмены)")
@@ -68,5 +68,4 @@ class TestAlertsPage:
         self.alert_page.alert3_click()
         self.alert_page.dismiss_alert3()
         with allure.step("Подтверждаем, что после нажатия Отмены у нас выпало нужное предложение"):
-            assert self.alert_page.get_text_after_alert3() == "Fine, be that way..."
-
+            assert self.alert_page.get_text_after_alert3() == "Fine, be that way...", "Ожидалось вывод текста Fine, be that way..."

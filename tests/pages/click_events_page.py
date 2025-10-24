@@ -5,7 +5,6 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 import allure
 
-
 class EventsPage(BasePage):
     def __init__(self, browser):
         super().__init__(browser)

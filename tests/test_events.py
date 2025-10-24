@@ -24,25 +24,25 @@ class TestEvents:
     def test_get_meow(self):
         self.event_page.buttonCat_click()
         with allure.step("Нажимаем на кнопку и подтверждаем, что нам выпал нужный текст"):
-            assert self.event_page.receive() == "Meow!"
+            assert self.event_page.receive() == "Meow!", "Ожидалось вывод текста Meow!"
 
     @allure.feature("Events")
     @allure.story("Нажатие кнопки Dog с выводом текста Woof!")
     def test_get_woof(self):
         self.event_page.buttonDog_click()
         with allure.step("Нажимаем на кнопку и подтверждаем, что нам выпал нужный текст"):
-            assert self.event_page.receive() == "Woof!"
+            assert self.event_page.receive() == "Woof!", "Ожидалось вывод текста Woof!"
 
     @allure.feature("Events")
     @allure.story("Нажатие кнопки Pig с выводом текста Oink!")
     def test_get_oink(self):
         self.event_page.buttonPig_click()
         with allure.step("Нажимаем на кнопку и подтверждаем, что нам выпал нужный текст"):
-            assert self.event_page.receive() == "Oink!"
+            assert self.event_page.receive() == "Oink!", "Ожидалось вывод текста Oink!"
 
     @allure.feature("Events")
     @allure.story("Нажатие кнопки Cow с выводом текста Moo!")
     def test_get_moo(self):
         self.event_page.buttonCow_click()
         with allure.step("Нажимаем на кнопку и подтверждаем, что нам выпал нужный текст"):
-            assert self.event_page.receive() == "Moo!"
+            assert self.event_page.receive() == "Moo!", "Ожидалось вывод текста Moo!"
