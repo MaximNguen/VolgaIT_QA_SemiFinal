@@ -1,5 +1,7 @@
 import allure
 import pytest
+
+from utils.expected_conditions import ExpectedTexts as EC
 from pages.forms_page import FormsPage
 
 class TestFormsPage:
@@ -36,5 +38,6 @@ class TestFormsPage:
         self.form_page.select_click()
         self.form_page.message_send()
         self.form_page.submit_click()
+        text = self.form_page.check_state_alert()
         with allure.step("Подтверждаем, что после нажатия Submit у нас выпало нужное предложение в Alert'е"):
-            assert self.form_page.check_state_alert() == "Message received!", "Ожидалось вывод текста Message received!"
+            assert text == EC.FORM_SUCCESS, f"Ожидалось вывод текста {EC.FORM_SUCCESS}, но получили {text}"

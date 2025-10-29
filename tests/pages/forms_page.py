@@ -1,5 +1,5 @@
 from pages.base_page import BasePage
-from pages.elements import *
+from utils.elements import *
 
 from selenium.webdriver.support.ui import WebDriverWait, Select
 import allure

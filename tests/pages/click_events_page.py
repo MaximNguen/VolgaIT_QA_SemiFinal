@@ -1,5 +1,6 @@
 from pages.base_page import BasePage
-from pages.elements import *
+from utils.elements import *
+from utils.waitUtils import *
 
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
@@ -56,7 +57,7 @@ class EventsPage(BasePage):
         )
 
     def receive(self):
-        a = self.wait()
+        a = WaitUtils.wait(self.browser, (RESULT[0], RESULT[1]))
         res = self.find(RESULT[0], RESULT[1])
         self.scroll(res)
         with allure.step("Получение текста нажатия кнопки"):
