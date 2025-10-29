@@ -11,6 +11,7 @@ class EventsPage(BasePage):
         super().__init__(browser)
 
     def buttonCat(self):
+        a = WaitUtils.wait(self.browser, (BUTTONCAT[0], BUTTONCAT[1]))
         btn = self.find(BUTTONCAT[0], BUTTONCAT[1])
         self.scroll(btn)
         with allure.step("Поиск кнопки Cat"):
@@ -21,6 +22,7 @@ class EventsPage(BasePage):
             return self.buttonCat().click()
 
     def buttonDog(self):
+        a = WaitUtils.wait(self.browser, (BUTTONDOG[0], BUTTONDOG[1]))
         btn = self.find(BUTTONDOG[0], BUTTONDOG[1])
         self.scroll(btn)
         with allure.step("Поиск кнопки Dog"):
@@ -31,6 +33,7 @@ class EventsPage(BasePage):
             return self.buttonDog().click()
 
     def buttonPig(self):
+        a = WaitUtils.wait(self.browser, (BUTTONPIG[0], BUTTONPIG[1]))
         btn = self.find(BUTTONPIG[0], BUTTONPIG[1])
         self.scroll(btn)
         with allure.step("Поиск кнопки Pig"):
@@ -41,6 +44,7 @@ class EventsPage(BasePage):
             return self.buttonPig().click()
 
     def buttonCow(self):
+        a = WaitUtils.wait(self.browser,(BUTTONCOW[0], BUTTONCOW[1]))
         btn = self.find(BUTTONCOW[0], BUTTONCOW[1])
         self.scroll(btn)
         with allure.step("Поиск кнопки Cow"):
@@ -49,12 +53,6 @@ class EventsPage(BasePage):
     def buttonCow_click(self):
         with allure.step("Нажатие кнопки Cow"):
             return self.buttonCow().click()
-
-
-    def wait(self):
-        return WebDriverWait(self.browser, 10).until(
-            EC.presence_of_element_located((RESULT[0], RESULT[1]))
-        )
 
     def receive(self):
         a = WaitUtils.wait(self.browser, (RESULT[0], RESULT[1]))

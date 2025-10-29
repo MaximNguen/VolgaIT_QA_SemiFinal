@@ -5,6 +5,6 @@ class WaitUtils:
     """Класс для хранения методов ожидания у selenium"""
 
     def wait(browser, element):
-        return WebDriverWait(browser, 10).until(
+        return WebDriverWait(browser, 3).until(
             EC.presence_of_element_located(element)
         )
