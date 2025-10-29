@@ -1,5 +1,5 @@
 from pages.click_events_page import EventsPage
-from utils.expected_conditions import ExpectedTexts as EC
+from utils.expected_texts import ExpectedTexts as ET
 
 import allure
 import pytest
@@ -26,7 +26,7 @@ class TestEvents:
         self.event_page.buttonCat_click()
         text = self.event_page.receive()
         with allure.step("Нажимаем на кнопку и подтверждаем, что нам выпал нужный текст"):
-            assert text == EC.CAT_TEXT, f"Ожидалось вывод текста {EC.CAT_TEXT}, но получили {text}"
+            assert text == ET.CAT_TEXT, f"Ожидалось вывод текста {ET.CAT_TEXT}, но получили {text}"
 
     @allure.feature("Events")
     @allure.story("Нажатие кнопки Dog с выводом текста Woof!")
@@ -34,7 +34,7 @@ class TestEvents:
         self.event_page.buttonDog_click()
         text = self.event_page.receive()
         with allure.step("Нажимаем на кнопку и подтверждаем, что нам выпал нужный текст"):
-            assert text == EC.DOG_TEXT, f"Ожидалось вывод текста {EC.DOG_TEXT}, но получили {text}"
+            assert text == ET.DOG_TEXT, f"Ожидалось вывод текста {ET.DOG_TEXT}, но получили {text}"
 
     @allure.feature("Events")
     @allure.story("Нажатие кнопки Pig с выводом текста Oink!")
@@ -42,7 +42,7 @@ class TestEvents:
         self.event_page.buttonPig_click()
         text = self.event_page.receive()
         with allure.step("Нажимаем на кнопку и подтверждаем, что нам выпал нужный текст"):
-            assert text == EC.PIG_TEXT, f"Ожидалось вывод текста {EC.PIG_TEXT}, но получили {text}"
+            assert text == ET.PIG_TEXT, f"Ожидалось вывод текста {ET.PIG_TEXT}, но получили {text}"
 
     @allure.feature("Events")
     @allure.story("Нажатие кнопки Cow с выводом текста Moo!")
@@ -50,4 +50,4 @@ class TestEvents:
         self.event_page.buttonCow_click()
         text = self.event_page.receive()
         with allure.step("Нажимаем на кнопку и подтверждаем, что нам выпал нужный текст"):
-            assert text == EC.COW_TEXT, f"Ожидалось вывод текста {EC.COW_TEXT}, но получили {text}"
+            assert text == ET.COW_TEXT, f"Ожидалось вывод текста {ET.COW_TEXT}, но получили {text}"

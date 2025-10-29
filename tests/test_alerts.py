@@ -1,7 +1,7 @@
 import allure
 import pytest
 
-from utils.expected_conditions import ExpectedTexts as EC
+from utils.expected_texts import ExpectedTexts as ET
 from pages.alerts_page import AlertsPage
 
 class TestAlertsPage:
@@ -28,7 +28,7 @@ class TestAlertsPage:
         text = self.alert_page.get_alert1_text()
         self.alert_page.accept_alert1_text()
         with allure.step("Подтверждаем, что бы получаем верный текст после закрытия Alert 1"):
-            assert text == EC.ALERT1_TEXT, f"Ожидалось вывод текста {EC.ALERT1_TEXT}, но получили {text}"
+            assert text == ET.ALERT1_TEXT, f"Ожидалось вывод текста {ET.ALERT1_TEXT}, но получили {text}"
 
     @allure.feature("Alerts")
     @allure.story("Тест второго Alert (Успешный - нажатие OK)")
@@ -37,7 +37,7 @@ class TestAlertsPage:
         self.alert_page.accept_alert2_text()
         text = self.alert_page.get_text_after_alert2()
         with allure.step("Подтверждаем, что после нажатия OK у нас выпало нужное предложение"):
-            assert text == EC.ALERT2_SUCCESS_TEXT, f"Ожидалось вывод текста {EC.ALERT2_SUCCESS_TEXT}, но получили {text}"
+            assert text == ET.ALERT2_SUCCESS_TEXT, f"Ожидалось вывод текста {ET.ALERT2_SUCCESS_TEXT}, но получили {text}"
 
     @allure.feature("Alerts")
     @allure.story("Тест второго Alert (Негативный - нажатие отмены)")
@@ -46,7 +46,7 @@ class TestAlertsPage:
         self.alert_page.dismiss_alert2()
         text = self.alert_page.get_text_after_alert2()
         with allure.step("Подтверждаем, что после нажатия Отмены у нас выпало нужное предложение"):
-            assert text == EC.ALERT2_FAILURE_TEXT, f"Ожидалось вывод текста {EC.ALERT2_FAILURE_TEXT}, но получили {text}"
+            assert text == ET.ALERT2_FAILURE_TEXT, f"Ожидалось вывод текста {ET.ALERT2_FAILURE_TEXT}, но получили {text}"
 
     @allure.feature("Alerts")
     @allure.story("Тест третьего Alert (Успешный - ввод текста и нажатие OK)")
@@ -57,7 +57,7 @@ class TestAlertsPage:
         self.alert_page.accept_alert3()
         text = self.alert_page.get_text_after_alert3()
         with allure.step("Подтверждаем, что после ввода текста и нажатия OK у нас выпало нужное предложение"):
-            assert text == f"{EC.ALERT3_SUCCESS_PREFIX}{name}!", f"Ожидалось вывод текста {EC.ALERT3_SUCCESS_PREFIX}{name}!, получили {text}"
+            assert text == f"{ET.ALERT3_SUCCESS_PREFIX}{name}!", f"Ожидалось вывод текста {ET.ALERT3_SUCCESS_PREFIX}{name}!, получили {text}"
 
     @allure.feature("Alerts")
     @allure.story("Тест третьего Alert (Негативный - не ввели текст и нажатие OK)")
@@ -66,7 +66,7 @@ class TestAlertsPage:
         self.alert_page.accept_alert3()
         text = self.alert_page.get_text_after_alert3()
         with allure.step("Подтверждаем, что после нажатия OK у нас выпало нужное предложение"):
-            assert text == EC.ALERT3_FAILURE_TEXT, f"Ожидалось вывод текста {EC.ALERT3_FAILURE_TEXT}, но получили {text}"
+            assert text == ET.ALERT3_FAILURE_TEXT, f"Ожидалось вывод текста {ET.ALERT3_FAILURE_TEXT}, но получили {text}"
 
     @allure.feature("Alerts")
     @allure.story("Тест второго Alert (Негативный - нажатие Отмены)")
@@ -75,4 +75,4 @@ class TestAlertsPage:
         self.alert_page.dismiss_alert3()
         text = self.alert_page.get_text_after_alert3()
         with allure.step("Подтверждаем, что после нажатия Отмены у нас выпало нужное предложение"):
-            assert text == EC.ALERT3_FAILURE_TEXT, f"Ожидалось вывод текста {EC.ALERT3_FAILURE_TEXT}, но получили {text}"
+            assert text == ET.ALERT3_FAILURE_TEXT, f"Ожидалось вывод текста {ET.ALERT3_FAILURE_TEXT}, но получили {text}"
