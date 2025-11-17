@@ -2,6 +2,7 @@ import allure
 import pytest
 
 from utils.expected_texts import ExpectedTexts as ET
+from utils.assertions import Assertions as Asrt
 from pages.forms_page import FormsPage
 
 class TestFormsPage:
@@ -40,4 +41,4 @@ class TestFormsPage:
         self.form_page.submit_click()
         text = self.form_page.check_state_alert()
         with allure.step("Подтверждаем, что после нажатия Submit у нас выпало нужное предложение в Alert'е"):
-            assert text == ET.FORM_SUCCESS, f"Ожидалось вывод текста {ET.FORM_SUCCESS}, но получили {text}"
+            Asrt.assert_text_equal(ET.FORM_SUCCESS, text)

@@ -3,6 +3,7 @@ import pytest
 
 from utils.expected_texts import ExpectedTexts as ET
 from pages.alerts_page import AlertsPage
+from utils.assertions import Assertions as Asrt
 
 class TestAlertsPage:
 
@@ -28,7 +29,7 @@ class TestAlertsPage:
         text = self.alert_page.get_alert1_text()
         self.alert_page.accept_alert1_text()
         with allure.step("Подтверждаем, что бы получаем верный текст после закрытия Alert 1"):
-            assert text == ET.ALERT1_TEXT, f"Ожидалось вывод текста {ET.ALERT1_TEXT}, но получили {text}"
+            Asrt.assert_text_equal(ET.ALERT1_TEXT, text)
 
     @allure.feature("Alerts")
     @allure.story("Тест второго Alert (Успешный - нажатие OK)")
@@ -37,7 +38,7 @@ class TestAlertsPage:
         self.alert_page.accept_alert2_text()
         text = self.alert_page.get_text_after_alert2()
         with allure.step("Подтверждаем, что после нажатия OK у нас выпало нужное предложение"):
-            assert text == ET.ALERT2_SUCCESS_TEXT, f"Ожидалось вывод текста {ET.ALERT2_SUCCESS_TEXT}, но получили {text}"
+            Asrt.assert_text_equal(ET.ALERT2_SUCCESS_TEXT, text)
 
     @allure.feature("Alerts")
     @allure.story("Тест второго Alert (Негативный - нажатие отмены)")
@@ -46,7 +47,7 @@ class TestAlertsPage:
         self.alert_page.dismiss_alert2()
         text = self.alert_page.get_text_after_alert2()
         with allure.step("Подтверждаем, что после нажатия Отмены у нас выпало нужное предложение"):
-            assert text == ET.ALERT2_FAILURE_TEXT, f"Ожидалось вывод текста {ET.ALERT2_FAILURE_TEXT}, но получили {text}"
+            Asrt.assert_text_equal(ET.ALERT2_FAILURE_TEXT, text)
 
     @allure.feature("Alerts")
     @allure.story("Тест третьего Alert (Успешный - ввод текста и нажатие OK)")

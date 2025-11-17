@@ -1,5 +1,6 @@
 from pages.click_events_page import EventsPage
 from utils.expected_texts import ExpectedTexts as ET
+from utils.assertions import Assertions as Asrt
 
 import allure
 import pytest
