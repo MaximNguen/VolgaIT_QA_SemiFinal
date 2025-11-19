@@ -230,3 +230,23 @@ class FormsPage(BasePage):
     def submit_click(self):
         with allure.step("Подтверждаем"):
             self.click(self.submit())
+
+    def required_text_find(self):
+        self.wait.wait_for_presence((REQUIREDFIELD[0], REQUIREDFIELD[1]))
+        required = self.find(REQUIREDFIELD[0], REQUIREDFIELD[1])
+        self.scroll(required)
+        with allure.step("Поиск текста сообщающий о том, что мы заполнили не все поля"):
+            return required
+
+    def invalid_email_text_find(self):
+        self.wait.wait_for_presence((INVALIDEMAIL[0], INVALIDEMAIL[1]))
+        email = self.find(INVALIDEMAIL[0], INVALIDEMAIL[1])
+        self.scroll(email)
+        with allure.step("Поиск текста сообщающий о том, что почта невалидная"):
+            return email
+
+    def get_list_of_warnings(self):
+        self.wait.wait_for_presence((LISTOFWARNINGS[0], LISTOFWARNINGS[1]))
+        lst = self.find_elements(LISTOFWARNINGS[0], LISTOFWARNINGS[1])
+        with allure.step("Получение списка предупреждений о невведенных данных"):
+            return lst

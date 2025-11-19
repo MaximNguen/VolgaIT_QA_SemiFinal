@@ -27,3 +27,7 @@ TEXTAREA = (By.XPATH, '//*[@id="register_form"]/fieldset[10]/textarea')
 PASSWORD = (By.XPATH, '//*[@id="register_form"]/fieldset[11]/input')
 CONFIRMPASSWORD = (By.XPATH, '//*[@id="register_form"]/fieldset[12]/input')
 BUTTON = (By.XPATH, '//*[@id="register_form"]/fieldset[13]/input')
+
+REQUIREDFIELD = (By.XPATH, '//*[@id="register_form"]/fieldset[1]/p[1]/label[2]')
+INVALIDEMAIL = (By.XPATH, '//*[@id="register_form"]/fieldset[8]/label[2]')
+LISTOFWARNINGS = (By.XPATH, "//label[@class='error_p']")
