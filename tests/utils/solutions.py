@@ -1,3 +1,4 @@
+""" Решения задач по алгоритмам """
 def first_task():
     a = [2025, 3, 11]
     import itertools

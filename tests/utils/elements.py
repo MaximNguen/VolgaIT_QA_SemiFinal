@@ -1,6 +1,5 @@
 from selenium.webdriver.common.by import By
 
-# =============== Первый сайт ===============
 FIRST_NAME = (By.XPATH, '//*[@id="register_form"]/fieldset[1]/p[1]/input')
 LAST_NAME = (By.XPATH, '//*[@id="register_form"]/fieldset[1]/p[2]/input')
 

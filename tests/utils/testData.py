@@ -1,6 +1,7 @@
 from utils.solutions import *
 
 class TestData:
+    """ Класс для хранения данных, используемые в тестах """
     DataForRequiredField = [
         ("Max", "Nguyen", "88005553535", "MaxLikePizza", "main@example.com", "12345678"),
         ("Pasha", "Ivanov", "901230912391", "PashaCoolGuy", "balalalal@gmail.com", "929929292"),
