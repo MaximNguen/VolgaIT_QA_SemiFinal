@@ -16,7 +16,7 @@ def second_task():
                 break
 
     res.sort()
-    return res[0]
+    return str(res[0])
 
 def third_task():
     s1 = 'aabbdsaacc'

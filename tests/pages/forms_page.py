@@ -40,7 +40,7 @@ class FormsPage(BasePage):
         with allure.step("Поиск первого Radio для нажатия"):
             return checkbox
 
-    def radiobox1_click(self, text):
+    def radiobox1_click(self):
         with allure.step("Нажатие Radio первого"):
             self.radiobox1_find().click()
 
@@ -51,7 +51,7 @@ class FormsPage(BasePage):
         with allure.step("Поиск второго Radio для нажатия"):
             return checkbox
 
-    def radiobox2_click(self, text):
+    def radiobox2_click(self):
         with allure.step("Нажатие второго Radio"):
             self.radiobox2_find().click()
 
@@ -62,7 +62,7 @@ class FormsPage(BasePage):
         with allure.step("Поиск третьего Radio для нажатия"):
             return checkbox
 
-    def radiobox3_click(self, text):
+    def radiobox3_click(self):
         with allure.step("Нажатие третьего Radio"):
             self.radiobox3_find().click()
 
@@ -119,7 +119,7 @@ class FormsPage(BasePage):
 
     def month_list_click(self):
         with allure.step("Выбор месяца"):
-            return Select(self.month_list_find()).select_by_index(2)
+            return Select(self.month_list_find()).select_by_index(1)
 
     def day_list_find(self):
         self.wait.wait_for_presence((DAYLIST[0], DAYLIST[1]))
@@ -130,7 +130,7 @@ class FormsPage(BasePage):
 
     def day_list_click(self):
         with allure.step("Выбор дня"):
-            return Select(self.day_list_find()).select_by_index(2)
+            return Select(self.day_list_find()).select_by_index(1)
 
     def year_list_find(self):
         self.wait.wait_for_presence((MONTHLIST[0], MONTHLIST[1]))
@@ -141,7 +141,7 @@ class FormsPage(BasePage):
 
     def year_list_click(self):
         with allure.step("Выбор года"):
-            return Select(self.month_list_find()).select_by_index(2)
+            return Select(self.month_list_find()).select_by_index(1)
 
     def phone_number_find(self):
         self.wait.wait_for_presence((PHONENUMBER[0], PHONENUMBER[1]))
@@ -186,6 +186,17 @@ class FormsPage(BasePage):
     def picture_input(self, path):
         with allure.step("Вставка пути к файла"):
             self.picture_input_find().send_keys(path)
+
+    def about_find(self):
+        self.wait.wait_for_presence((TEXTAREA[0], TEXTAREA[1]))
+        about = self.find(TEXTAREA[0], TEXTAREA[1])
+        self.scroll(about)
+        with allure.step("Поиск поле ввода про себя"):
+            return about
+
+    def about_input(self, text):
+        with allure.step("Ввод текста в поле про себя"):
+            self.about_find().send_keys(text)
 
     def password_find(self):
         self.wait.wait_for_presence((PASSWORD[0], PASSWORD[1]))

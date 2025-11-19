@@ -65,18 +65,28 @@ class TestFormsPage:
 
     @allure.feature("Положительный тест-кейс №2")
     @allure.story("Ввод всех полей")
-    @pytest.mark.parametrize("first_name, last_name, phone_number, username, mail, photo, about, password", TD.DataForAllField)
-    def test_all_fields(self, first_name, last_name, phone_number, username, mail, photo, about, password):
+    @pytest.mark.parametrize("first_name, last_name, radio, phone_number, username, mail, photo, about, password", TD.DataForAllField)
+    def test_all_fields(self, first_name, last_name, radio, phone_number, username, mail, photo, about, password):
         self.form_page.first_name_input(first_name)
         self.form_page.last_name_input(last_name)
-        match
-        self.form_page.radiobox1_click()
+        match radio:
+            case 1:
+                self.form_page.radiobox1_click()
+            case 2:
+                self.form_page.radiobox2_click()
+            case 3:
+                self.form_page.radiobox3_click()
         self.form_page.checkbox1_click()
         self.form_page.checkbox2_click()
         self.form_page.checkbox3_click()
+        self.form_page.day_list_click()
+        self.form_page.month_list_click()
+        self.form_page.year_list_click()
         self.form_page.phone_number_input(phone_number)
         self.form_page.username_input(username)
         self.form_page.email_input(mail)
+        self.form_page.picture_input(photo)
+        self.form_page.about_input(about)
         self.form_page.password_input(password)
         self.form_page.password_confirm_input(password)
         self.form_page.submit_click()
