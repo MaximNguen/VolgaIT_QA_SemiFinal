@@ -14,5 +14,8 @@ class BasePage:
     def scroll(self, element):
         self.browser.execute_script("arguments[0].scrollIntoView(true);", element)
 
+    def click(self, element):
+        self.browser.execute_script("arguments[0].click();", element)
+
     def quit(self):
         self.browser.quit()
