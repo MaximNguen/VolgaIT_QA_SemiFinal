@@ -47,7 +47,7 @@
 
 <h2>Негативный тест-кейс №1</h2>
 <h3>Заполнение не всех требующихся полей - Тест 3</h3>
-<strong>Предусловия:</strong> Открыта страница (https://practice-automation.com/popups/)</br>
+<strong>Предусловия:</strong> Открыта страница (https://way2automation.com/way2auto_jquery/registration.php#load_box)</br>
 <strong>Шаги</strong>
 <ul>
   <li>Заполнить поле "Last Name"</li>
@@ -63,7 +63,7 @@
 
 <h2>Негативный тест-кейс №2</h2>
 <h3>Заполнение всех требующихся полей с невалидной почтой - Тест 4</h3>
-<strong>Предусловия:</strong> Открыта страница (https://practice-automation.com/popups/)</br>
+<strong>Предусловия:</strong> Открыта страница (https://way2automation.com/way2auto_jquery/registration.php#load_box)</br>
 <strong>Шаги</strong>
 <ul>
   <li>Заполнить поле "First Name"</li>
@@ -80,7 +80,7 @@
 
 <h2>Негативный тест-кейс №3</h2>
 <h3>Потдверждение регистрации без заполнения полей - Тест 5</h3>
-<strong>Предусловия:</strong> Открыта страница (https://practice-automation.com/popups/)</br>
+<strong>Предусловия:</strong> Открыта страница (https://way2automation.com/way2auto_jquery/registration.php#load_box)</br>
 <strong>Шаги</strong>
 <ul>
   <li>Нажатие кнопки "Submit"</li>
