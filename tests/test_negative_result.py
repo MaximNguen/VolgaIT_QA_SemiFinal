@@ -66,4 +66,5 @@ class TestFormsPageNegativeCases:
         self.form_page.submit_click()
 
         get_list_of_warnings = self.form_page.get_list_of_warnings()
-        assert len(get_list_of_warnings) == 7, f"При ручном тесте обнаружен 7 предупреждений, получены такие элементы {get_list_of_warnings}"
+        with allure.step("Достоверимся, что количество текстов с уведомлением о незаполненных полях соответствуют ожиданиям"):
+            assert len(get_list_of_warnings) == 7, f"При ручном тесте обнаружен 7 предупреждений, получены такие элементы {get_list_of_warnings}"
