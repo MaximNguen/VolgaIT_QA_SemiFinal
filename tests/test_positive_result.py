@@ -5,7 +5,7 @@ from pages.forms_page import FormsPage
 from utils.testData import TestData as TD
 from utils.expected_texts import ExpectedTexts as ET
 
-class TestFormsPage:
+class TestFormsPagePositiveCases:
     @classmethod
     def setup_class(cls):
         print("\n============= Начало тестирования страницы с формами =============")

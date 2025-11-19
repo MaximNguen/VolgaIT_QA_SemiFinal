@@ -43,7 +43,7 @@ class TestFormsPageNegativeCases:
     @allure.feature("Негативный тест-кейс №2")
     @allure.story("Ввод всех требующих полей, но почта невалидная")
     @pytest.mark.parametrize("first_name, last_name, phone_number, username, mail, password", TD.DataForRequiredFieldWithNonValidEmail)
-    def test_required_field(self, browser, first_name, last_name, phone_number, username, mail, password):
+    def test_required_field_but_email_invalid(self, browser, first_name, last_name, phone_number, username, mail, password):
         self.form_page.first_name_input(first_name)
         self.form_page.last_name_input(last_name)
         self.form_page.checkbox1_click()
