@@ -1,20 +1,18 @@
-from tests.pages.base_page import BasePage
-from tests.utils.elements import *
-from tests.utils.waitUtils import WaitUtils as WU
+from pages.base_page import BasePage
+from utils.elements import *
+from utils.waitUtils import WaitUtils as WU
 
 from selenium.webdriver.support.ui import Select
 import allure
 import random as rd
 
-from tests.utils.elements import FIRST_NAME, LAST_NAME, CHECKBOX1, COUNTRYLIST
-
-
 class FormsPage(BasePage):
     def __init__(self, browser):
         super().__init__(browser)
-        self.wait = WU
+        self.wait = WU(browser)
 
     def first_name_find(self):
+        self.wait.wait_for_presence((FIRST_NAME[0], FIRST_NAME[1]))
         name = self.find(FIRST_NAME[0], FIRST_NAME[1])
         self.scroll(name)
         with allure.step("Поиск поле для ввода имени"):
@@ -25,6 +23,7 @@ class FormsPage(BasePage):
             self.first_name_find().send_keys(text)
 
     def last_name_find(self):
+        self.wait.wait_for_presence((LAST_NAME[0], LAST_NAME[1]))
         name = self.find(LAST_NAME[0], LAST_NAME[1])
         self.scroll(name)
         with allure.step("Поиск поле для ввода фамилии"):
@@ -35,6 +34,7 @@ class FormsPage(BasePage):
             self.last_name_find().send_keys(text)
 
     def radiobox1_find(self):
+        self.wait.wait_for_clickable((RADIO1[0], RADIO1[1]))
         checkbox = self.find(RADIO1[0], RADIO1[1])
         self.scroll(checkbox)
         with allure.step("Поиск первого Radio для нажатия"):
@@ -45,6 +45,7 @@ class FormsPage(BasePage):
             self.radiobox1_find().click()
 
     def radiobox2_find(self):
+        self.wait.wait_for_clickable((RADIO2[0], RADIO2[1]))
         checkbox = self.find(RADIO2[0], RADIO2[1])
         self.scroll(checkbox)
         with allure.step("Поиск второго Radio для нажатия"):
@@ -55,6 +56,7 @@ class FormsPage(BasePage):
             self.radiobox2_find().click()
 
     def radiobox3_find(self):
+        self.wait.wait_for_clickable((RADIO3[0], RADIO3[1]))
         checkbox = self.find(RADIO3[0], RADIO3[1])
         self.scroll(checkbox)
         with allure.step("Поиск третьего Radio для нажатия"):
@@ -65,36 +67,40 @@ class FormsPage(BasePage):
             self.radiobox3_find().click()
 
     def checkbox1_find(self):
+        self.wait.wait_for_clickable((CHECKBOX1[0], CHECKBOX1[1]))
         checkbox = self.find(CHECKBOX1[0], CHECKBOX1[1])
         self.scroll(checkbox)
         with allure.step('Поиск первого checkbox для нажатия'):
             return checkbox
 
-    def checkbox1_click(self, text):
+    def checkbox1_click(self):
         with allure.step("Нажатие первого checkbox"):
             self.checkbox1_find().click()
 
     def checkbox2_find(self):
+        self.wait.wait_for_clickable((CHECKBOX2[0], CHECKBOX2[1]))
         checkbox = self.find(CHECKBOX2[0], CHECKBOX2[1])
         self.scroll(checkbox)
         with allure.step('Поиск второго checkbox для нажатия'):
             return checkbox
 
-    def checkbox2_click(self, text):
+    def checkbox2_click(self):
         with allure.step("Нажатие второго checkbox"):
             self.checkbox2_find().click()
 
     def checkbox3_find(self):
+        self.wait.wait_for_clickable((CHECKBOX3[0], CHECKBOX3[1]))
         checkbox = self.find(CHECKBOX3[0], CHECKBOX3[1])
         self.scroll(checkbox)
         with allure.step('Поиск третьего checkbox для нажатия'):
             return checkbox
 
-    def checkbox3_click(self, text):
+    def checkbox3_click(self):
         with allure.step("Нажатие третьего checkbox"):
             self.checkbox1_find().click()
 
     def country_list_find(self):
+        self.wait.wait_for_presence((COUNTRYLIST[0], COUNTRYLIST[1]))
         lst = self.find(COUNTRYLIST[0], COUNTRYLIST[1])
         self.scroll(lst)
         with allure.step('Поиск списка стран'):
@@ -102,9 +108,10 @@ class FormsPage(BasePage):
 
     def country_list_click(self, text):
         with allure.step("Выбор любой страны"):
-            Select(self.country_list_find()).select_by_index(rd.randint(0, 1))
+            return Select(self.country_list_find()).select_by_index(rd.randint(0, 1))
 
     def month_list_find(self):
+        self.wait.wait_for_presence((MONTHLIST[0], MONTHLIST[1]))
         lst = self.find(MONTHLIST[0], MONTHLIST[1])
         self.scroll(lst)
         with allure.step("Поиск списка месяцев"):
@@ -112,9 +119,10 @@ class FormsPage(BasePage):
 
     def month_list_click(self):
         with allure.step("Выбор месяца"):
-            Select(self.month_list_find()).select_by_index(1)
+            return Select(self.month_list_find()).select_by_index(2)
 
     def day_list_find(self):
+        self.wait.wait_for_presence((DAYLIST[0], DAYLIST[1]))
         lst = self.find(DAYLIST[0], DAYLIST[1])
         self.scroll(lst)
         with allure.step("Поиск списка дней"):
@@ -122,9 +130,10 @@ class FormsPage(BasePage):
 
     def day_list_click(self):
         with allure.step("Выбор дня"):
-            Select(self.day_list_find()).select_by_index(1)
+            return Select(self.day_list_find()).select_by_index(2)
 
     def year_list_find(self):
+        self.wait.wait_for_presence((MONTHLIST[0], MONTHLIST[1]))
         lst = self.find(MONTHLIST[0], MONTHLIST[1])
         self.scroll(lst)
         with allure.step("Поиск списка года"):
@@ -132,9 +141,10 @@ class FormsPage(BasePage):
 
     def year_list_click(self):
         with allure.step("Выбор года"):
-            Select(self.month_list_find()).select_by_index(1)
+            return Select(self.month_list_find()).select_by_index(2)
 
     def phone_number_find(self):
+        self.wait.wait_for_presence((PHONENUMBER[0], PHONENUMBER[1]))
         phone = self.find(PHONENUMBER[0], PHONENUMBER[1])
         self.scroll(phone)
         with allure.step("Поиск поля для ввода номера телефона"):
@@ -145,6 +155,7 @@ class FormsPage(BasePage):
             self.phone_number_find().send_keys(text)
 
     def username_find(self):
+        self.wait.wait_for_presence((USERNAME[0], USERNAME[1]))
         username = self.find(USERNAME[0], USERNAME[1])
         self.scroll(username)
         with allure.step("Поиск поля для ввода username"):
@@ -155,6 +166,7 @@ class FormsPage(BasePage):
             self.username_find().send_keys(text)
 
     def email_find(self):
+        self.wait.wait_for_presence((EMAIL[0], EMAIL[1]))
         email = self.find(EMAIL[0], EMAIL[1])
         self.scroll(email)
         with allure.step('Поиск поля ввода почты'):
@@ -165,6 +177,7 @@ class FormsPage(BasePage):
             self.email_find().send_keys(text)
 
     def picture_input_find(self):
+        self.wait.wait_for_presence((INPUTPHOTO[0], INPUTPHOTO[1]))
         photo = self.find(INPUTPHOTO[0], INPUTPHOTO[1])
         self.scroll(photo)
         with allure.step("Поиск вставки фото"):
@@ -174,7 +187,8 @@ class FormsPage(BasePage):
         with allure.step("Вставка пути к файла"):
             self.picture_input_find().send_keys(path)
 
-    def password_find(self)
+    def password_find(self):
+        self.wait.wait_for_presence((PASSWORD[0], PASSWORD[1]))
         password = self.find(PASSWORD[0], PASSWORD[1])
         self.scroll(password)
         with allure.step("Поиск поле ввода пароля"):
@@ -185,6 +199,7 @@ class FormsPage(BasePage):
             self.password_find().send_keys(pass_text)
 
     def password_confirm_find(self):
+        self.wait.wait_for_presence((CONFIRMPASSWORD[0], CONFIRMPASSWORD[1]))
         password = self.find(CONFIRMPASSWORD[0], CONFIRMPASSWORD[1])
         self.scroll(password)
         with allure.step("Поиск поле ввода пароля для подтверждения"):
@@ -195,6 +210,7 @@ class FormsPage(BasePage):
             self.password_confirm_find().send_keys(pass_text)
 
     def submit(self):
+        self.wait.wait_for_clickable((BUTTON[0], BUTTON[1]))
         submit = self.find(BUTTON[0], BUTTON[1])
         self.scroll(submit)
         with allure.step("Ищем кнопку для подтверждения"):
