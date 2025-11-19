@@ -1,137 +1,205 @@
-from pages.base_page import BasePage
-from utils.elements import *
+from tests.pages.base_page import BasePage
+from tests.utils.elements import *
+from tests.utils.waitUtils import WaitUtils as WU
 
-from selenium.webdriver.support.ui import WebDriverWait, Select
+from selenium.webdriver.support.ui import Select
 import allure
+import random as rd
+
+from tests.utils.elements import FIRST_NAME, LAST_NAME, CHECKBOX1, COUNTRYLIST
+
 
 class FormsPage(BasePage):
     def __init__(self, browser):
         super().__init__(browser)
+        self.wait = WU
 
-    def nameInput(self):
-        name = self.find(NAMEINPUT[0], NAMEINPUT[1])
+    def first_name_find(self):
+        name = self.find(FIRST_NAME[0], FIRST_NAME[1])
         self.scroll(name)
-        with allure.step("Находим поле для имени"):
+        with allure.step("Поиск поле для ввода имени"):
             return name
 
-    def nameInput_send(self, text):
-        with allure.step("Отправляем текст в поле имени"):
-            self.nameInput().send_keys(text)
+    def first_name_input(self, text):
+        with allure.step("Ввод имени в поле"):
+            self.first_name_find().send_keys(text)
 
-    def passwordInput(self):
-        password = self.find(PASSWORDINPUT[0], PASSWORDINPUT[1])
+    def last_name_find(self):
+        name = self.find(LAST_NAME[0], LAST_NAME[1])
+        self.scroll(name)
+        with allure.step("Поиск поле для ввода фамилии"):
+            return name
+
+    def last_name_input(self, text):
+        with allure.step("Ввод фамилии в поле"):
+            self.last_name_find().send_keys(text)
+
+    def radiobox1_find(self):
+        checkbox = self.find(RADIO1[0], RADIO1[1])
+        self.scroll(checkbox)
+        with allure.step("Поиск первого Radio для нажатия"):
+            return checkbox
+
+    def radiobox1_click(self, text):
+        with allure.step("Нажатие Radio первого"):
+            self.radiobox1_find().click()
+
+    def radiobox2_find(self):
+        checkbox = self.find(RADIO2[0], RADIO2[1])
+        self.scroll(checkbox)
+        with allure.step("Поиск второго Radio для нажатия"):
+            return checkbox
+
+    def radiobox2_click(self, text):
+        with allure.step("Нажатие второго Radio"):
+            self.radiobox2_find().click()
+
+    def radiobox3_find(self):
+        checkbox = self.find(RADIO3[0], RADIO3[1])
+        self.scroll(checkbox)
+        with allure.step("Поиск третьего Radio для нажатия"):
+            return checkbox
+
+    def radiobox3_click(self, text):
+        with allure.step("Нажатие третьего Radio"):
+            self.radiobox3_find().click()
+
+    def checkbox1_find(self):
+        checkbox = self.find(CHECKBOX1[0], CHECKBOX1[1])
+        self.scroll(checkbox)
+        with allure.step('Поиск первого checkbox для нажатия'):
+            return checkbox
+
+    def checkbox1_click(self, text):
+        with allure.step("Нажатие первого checkbox"):
+            self.checkbox1_find().click()
+
+    def checkbox2_find(self):
+        checkbox = self.find(CHECKBOX2[0], CHECKBOX2[1])
+        self.scroll(checkbox)
+        with allure.step('Поиск второго checkbox для нажатия'):
+            return checkbox
+
+    def checkbox2_click(self, text):
+        with allure.step("Нажатие второго checkbox"):
+            self.checkbox2_find().click()
+
+    def checkbox3_find(self):
+        checkbox = self.find(CHECKBOX3[0], CHECKBOX3[1])
+        self.scroll(checkbox)
+        with allure.step('Поиск третьего checkbox для нажатия'):
+            return checkbox
+
+    def checkbox3_click(self, text):
+        with allure.step("Нажатие третьего checkbox"):
+            self.checkbox1_find().click()
+
+    def country_list_find(self):
+        lst = self.find(COUNTRYLIST[0], COUNTRYLIST[1])
+        self.scroll(lst)
+        with allure.step('Поиск списка стран'):
+            return lst
+
+    def country_list_click(self, text):
+        with allure.step("Выбор любой страны"):
+            Select(self.country_list_find()).select_by_index(rd.randint(0, 1))
+
+    def month_list_find(self):
+        lst = self.find(MONTHLIST[0], MONTHLIST[1])
+        self.scroll(lst)
+        with allure.step("Поиск списка месяцев"):
+            return lst
+
+    def month_list_click(self):
+        with allure.step("Выбор месяца"):
+            Select(self.month_list_find()).select_by_index(1)
+
+    def day_list_find(self):
+        lst = self.find(DAYLIST[0], DAYLIST[1])
+        self.scroll(lst)
+        with allure.step("Поиск списка дней"):
+            return lst
+
+    def day_list_click(self):
+        with allure.step("Выбор дня"):
+            Select(self.day_list_find()).select_by_index(1)
+
+    def year_list_find(self):
+        lst = self.find(MONTHLIST[0], MONTHLIST[1])
+        self.scroll(lst)
+        with allure.step("Поиск списка года"):
+            return lst
+
+    def year_list_click(self):
+        with allure.step("Выбор года"):
+            Select(self.month_list_find()).select_by_index(1)
+
+    def phone_number_find(self):
+        phone = self.find(PHONENUMBER[0], PHONENUMBER[1])
+        self.scroll(phone)
+        with allure.step("Поиск поля для ввода номера телефона"):
+            return phone
+
+    def phone_number_input(self, text):
+        with allure.step('Ввод номер телефона'):
+            self.phone_number_find().send_keys(text)
+
+    def username_find(self):
+        username = self.find(USERNAME[0], USERNAME[1])
+        self.scroll(username)
+        with allure.step("Поиск поля для ввода username"):
+            return username
+
+    def username_input(self, text):
+        with allure.step('Ввод username'):
+            self.username_find().send_keys(text)
+
+    def email_find(self):
+        email = self.find(EMAIL[0], EMAIL[1])
+        self.scroll(email)
+        with allure.step('Поиск поля ввода почты'):
+            return email
+
+    def email_input(self, text):
+        with allure.step("Ввод email"):
+            self.email_find().send_keys(text)
+
+    def picture_input_find(self):
+        photo = self.find(INPUTPHOTO[0], INPUTPHOTO[1])
+        self.scroll(photo)
+        with allure.step("Поиск вставки фото"):
+            return photo
+
+    def picture_input(self, path):
+        with allure.step("Вставка пути к файла"):
+            self.picture_input_find().send_keys(path)
+
+    def password_find(self)
+        password = self.find(PASSWORD[0], PASSWORD[1])
         self.scroll(password)
-        with allure.step("Находим поле для пароля"):
+        with allure.step("Поиск поле ввода пароля"):
             return password
 
-    def passwordInput_send(self, text):
-        with allure.step("Вставляем пароль в поле"):
-            self.passwordInput().send_keys(text)
+    def password_input(self, pass_text):
+        with allure.step('Ввод пароля'):
+            self.password_find().send_keys(pass_text)
 
-    def checkbox1(self):
-        check1 = self.find(CHECKBOX1[0], CHECKBOX1[1])
-        self.scroll(check1)
-        with allure.step("Находим ЧекБокс1"):
-            return check1
+    def password_confirm_find(self):
+        password = self.find(CONFIRMPASSWORD[0], CONFIRMPASSWORD[1])
+        self.scroll(password)
+        with allure.step("Поиск поле ввода пароля для подтверждения"):
+            return password
 
-    def checkbox1_click(self):
-        with allure.step("Нажимаем ЧекБокс1"):
-            self.checkbox1().click()
-
-    def checkbox2(self):
-        check2 = self.find(CHECKBOX2[0], CHECKBOX2[1])
-        self.scroll(check2)
-        with allure.step("Находим ЧекБокс2"):
-            return check2
-
-    def checkbox2_click(self):
-        with allure.step("Нажимаем ЧекБокс2"):
-            self.checkbox2().click()
-
-    def checkbox3(self):
-        check3 = self.find(CHECKBOX3[0], CHECKBOX3[1])
-        self.scroll(check3)
-        with allure.step("Находим ЧекБокс3"):
-            return check3
-
-    def checkbox3_click(self):
-        with allure.step("Нажимаем ЧекБокс3"):
-            self.checkbox3().click()
-
-    def checkbox4(self):
-        check4 = self.find(CHECKBOX4[0], CHECKBOX4[1])
-        self.scroll(check4)
-        with allure.step("Находим ЧекБокс4"):
-            return check4
-
-    def checkbox4_click(self):
-        with allure.step("Нажимаем ЧекБокс4"):
-            self.checkbox4().click()
-
-    def checkbox5(self):
-        check5 = self.find(CHECKBOX5[0], CHECKBOX5[1])
-        self.scroll(check5)
-        with allure.step("Находим ЧекБокс5"):
-            return check5
-
-    def checkbox5_click(self):
-        with allure.step("Нажимаем ЧекБокс5"):
-            self.checkbox5().click()
-
-    def radio1(self):
-        radio1 = self.find(RADIO1[0], RADIO1[1])
-        self.scroll(radio1)
-        with allure.step("Находим РадиоБокс"):
-            return radio1
-
-    def radio1_click(self):
-        with allure.step("Нажимаем на РадиоБокс"):
-            self.browser.execute_script('arguments[0].click()', self.radio1())
-
-    def select(self):
-        select = self.find(SELECT[0], SELECT[1])
-        self.scroll(select)
-        with allure.step("Находим список выбора"):
-            return select
-
-    def select_click(self):
-        with allure.step("Выбираем 1 значение из списка"):
-            return Select(self.select()).select_by_value("yes")
-
-    def email(self):
-        email1 = self.find(EMAILINPUT[0], EMAILINPUT[1])
-        self.scroll(email1)
-        with allure.step("Находим поле для Почты"):
-            return email1
-
-    def email_send(self, mail):
-        with allure.step("Вводим почту"):
-            self.email().send_keys(mail)
-
-    def message(self):
-        message = self.find(MESSAGE[0], MESSAGE[1])
-        self.scroll(message)
-        with allure.step("Находим поле для сообщения"):
-            return message
-
-    def message_send(self):
-        lst = self.find_elements_texts(LIST[0], LIST[1])
-        texts = [element.text for element in lst]
-        texts = sorted(texts, key=lambda x: len(x))
-        with allure.step("Вводим нужный текст в поле сообщений"):
-            return self.message().send_keys(texts[-1])
+    def password_confirm_input(self, pass_text):
+        with allure.step('Ввод пароля для потверждения'):
+            self.password_confirm_find().send_keys(pass_text)
 
     def submit(self):
-        submit = self.find(SUBMIT[0], SUBMIT[1])
+        submit = self.find(BUTTON[0], BUTTON[1])
         self.scroll(submit)
         with allure.step("Ищем кнопку для подтверждения"):
             return submit
 
     def submit_click(self):
         with allure.step("Подтверждаем"):
-            self.browser.execute_script('arguments[0].click()', self.submit())
-
-    def check_state_alert(self):
-        alert = self.browser.switch_to.alert
-        with allure.step("Получаем текст из Alert после ввода форм"):
-            return alert.text
+            self.click(self.submit())

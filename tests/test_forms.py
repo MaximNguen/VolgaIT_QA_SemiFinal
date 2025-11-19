@@ -15,7 +15,7 @@ class TestFormsPage:
         print("\n================= Конец тестов страницы формов =========")
 
     @pytest.fixture(autouse=True)
-    def setup(self, browser, url = "https://practice-automation.com/form-fields/"):
+    def setup(self, browser, url = "https://way2automation.com/way2auto_jquery/registration.php#load_box"):
         self.form_page = FormsPage(browser)
         self.form_page.open(url)
         yield self.form_page
